@@ -143,16 +143,26 @@ public class InterfazArbol extends JFrame {
             JOptionPane.showMessageDialog(this, "Expresión inválida para graficar");
             return;
         }
-
+    
         String postfija = EvaluadorExpresion.convertirApostfija(expresion);
         ArbolExpresion arbol = new ArbolExpresion(postfija);
-
-        panelGrafico.removeAll();
+    
+        // Eliminar el panel gráfico anterior
+        remove(panelGrafico);
+        
+        // Crear un nuevo panel gráfico con el árbol actualizado
         panelGrafico = new PanelGrafico(arbol.getRaiz());
+        
+        // Agregar el nuevo panel gráfico
         add(panelGrafico, BorderLayout.EAST);
+        
+        // Actualizar la interfaz
+        panelGrafico.revalidate();
+        panelGrafico.repaint();
         revalidate();
         repaint();
     }
+    
 
     private void limpiarCampos() {
         inputExpresion.setText("");
