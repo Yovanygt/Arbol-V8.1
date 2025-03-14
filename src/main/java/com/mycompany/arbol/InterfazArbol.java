@@ -23,7 +23,7 @@ public class InterfazArbol extends JFrame {
         inputExpresion = new JTextField(30);
         panelSuperior.add(inputExpresion);
 
-        // Panel de resultados
+        // Panel de resultados Arbol
         JPanel panelResultados = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
