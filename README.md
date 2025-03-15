@@ -356,52 +356,76 @@ Esta clase evalúa una expresión matemática escrita en notación postfija.
     
             // Panel de entrada
             JPanel panelSuperior = new JPanel(new FlowLayout(FlowLayout.CENTER));
-            panelSuperior.add(new JLabel("Ingrese la función:"));
-            inputExpresion = new JTextField(30);
-            panelSuperior.add(inputExpresion);
-    
-            // Panel de resultados
-            JPanel panelResultados = new JPanel(new GridBagLayout());
-            GridBagConstraints gbc = new GridBagConstraints();
-            gbc.fill = GridBagConstraints.HORIZONTAL;
-            gbc.insets = new Insets(5, 5, 5, 5);
-            gbc.gridx = 0;
-            gbc.gridy = 0;
-    
-            panelResultados.add(new JLabel("Notación Postfija:"), gbc);
-            gbc.gridy++;
-            outputPostfija = new JTextArea(2, 40);
-            panelResultados.add(new JScrollPane(outputPostfija), gbc);
-    
-            gbc.gridy++;
-            panelResultados.add(new JLabel("Recorrido Inorden:"), gbc);
-            gbc.gridy++;
-            outputInorden = new JTextArea(2, 40);
-            panelResultados.add(new JScrollPane(outputInorden), gbc);
-    
-            gbc.gridy++;
-            panelResultados.add(new JLabel("Recorrido Preorden:"), gbc);
-            gbc.gridy++;
-            outputPreorden = new JTextArea(2, 40);
-            panelResultados.add(new JScrollPane(outputPreorden), gbc);
-    
-            gbc.gridy++;
-            panelResultados.add(new JLabel("Recorrido Postorden:"), gbc);
-            gbc.gridy++;
-            outputPostorden = new JTextArea(2, 40);
-            panelResultados.add(new JScrollPane(outputPostorden), gbc);
-    
-            gbc.gridy++;
-            panelResultados.add(new JLabel("Proceso de Evaluación:"), gbc);
-            gbc.gridy++;
-            outputProceso = new JTextArea(6, 40);
-            panelResultados.add(new JScrollPane(outputProceso), gbc);
-    
-            gbc.gridy++;
-            panelResultados.add(new JLabel("Resultado Final:"), gbc);
-            gbc.gridy++;
-            outputResultado = new JTextArea(2, 40);
-            panelResultados.add(new JScrollPane(outputResultado), gbc);
+            ‎src/main/java/com/mycompany/arbol/InterfazArbol.java
++25
+Original file line number	Diff line number	Diff line change
+@@ -22,6 +22,7 @@
+        panelSuperior.add(new JLabel("Ingrese la función:"));
+        inputExpresion = new JTextField(30);
+        panelSuperior.add(inputExpresion);
+        
+
+        // Panel de resultados Arbol
+        JPanel panelResultados = new JPanel(new GridBagLayout());
+@@ -31,81 +32,105 @@
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+
+        
+        panelResultados.add(new JLabel("Notación Postfija:"), gbc);
+        gbc.gridy++;
+        outputPostfija = new JTextArea(2, 40);
+        outputPostfija.setLineWrap(true);
+        outputPostfija.setWrapStyleWord(true);
+        outputPostfija.setMinimumSize(new Dimension(400, 50));
+        panelResultados.add(new JScrollPane(outputPostfija), gbc);
+        
+        
+        
+
+        gbc.gridy++;
+        panelResultados.add(new JLabel("Recorrido Inorden:"), gbc);
+        gbc.gridy++;
+        outputInorden = new JTextArea(2, 40);
+        outputInorden.setLineWrap(true);
+        outputInorden.setWrapStyleWord(true);
+        outputInorden.setMinimumSize(new Dimension(400, 50));
+        panelResultados.add(new JScrollPane(outputInorden), gbc);
+
+        gbc.gridy++;
+        panelResultados.add(new JLabel("Recorrido Preorden:"), gbc);
+        gbc.gridy++;
+        outputPreorden = new JTextArea(2, 40);
+        outputPreorden.setLineWrap(true);
+        outputPreorden.setWrapStyleWord(true);
+        outputPreorden.setMinimumSize(new Dimension(400, 50));
+        panelResultados.add(new JScrollPane(outputPreorden), gbc);
+
+        gbc.gridy++;
+        panelResultados.add(new JLabel("Recorrido Postorden:"), gbc);
+        gbc.gridy++;
+        outputPostorden = new JTextArea(2, 40);
+        outputPostorden.setLineWrap(true);
+        outputPostorden.setWrapStyleWord(true);
+        outputPostorden.setMinimumSize(new Dimension(400, 50));
+        panelResultados.add(new JScrollPane(outputPostorden), gbc);
+
+        gbc.gridy++;
+        panelResultados.add(new JLabel("Proceso de Evaluación:"), gbc);
+        gbc.gridy++;
+        outputProceso = new JTextArea(6, 40);
+        outputProceso.setLineWrap(true);
+        outputProceso.setWrapStyleWord(true);
+        outputProceso.setMinimumSize(new Dimension(4000, 2000));
+        panelResultados.add(new JScrollPane(outputProceso), gbc);
+
+        gbc.gridy++;
+        panelResultados.add(new JLabel("Resultado Final:"), gbc);
+        gbc.gridy++;
+        outputResultado = new JTextArea(2, 40);
+        outputResultado.setLineWrap(true);
+        outputResultado.setWrapStyleWord(true);
+        outputResultado.setMinimumSize(new Dimension(4000, 2000));
     
             // Botones
             JPanel panelBotones = new JPanel();
